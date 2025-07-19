@@ -38,16 +38,19 @@ To see a list of all available tasks, run `task --list`.
 While `task` is recommended, you can also run the commands manually:
 
 - **Sync environment from `uv.lock`**:
+
   ```bash
   uv sync
   ```
 
 - **Run all tests**:
+
   ```bash
   uv run -m pytest
   ```
 
 - **Run pre-commit checks**:
+
   ```bash
   uv run -- pre-commit run --all-files
   ```
