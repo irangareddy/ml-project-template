@@ -4,94 +4,50 @@ This document provides a summary of the project's structure, conventions, and co
 
 ## 1. Project Overview
 
-This is a machine learning (ML) / deep learning (DL) project configured with modern Python tooling. It uses `uv` for package management and `Ruff` for unified linting and formatting. All configuration is centralized in `pyproject.toml`.
+This is a machine learning (ML) / deep learning (DL) project configured with modern Python tooling. It uses `uv` for package management, `Ruff` for unified linting and formatting, and `pre-commit` for automated checks. All configuration is centralized in `pyproject.toml`.
 
 ## 2. Key Files
 
 - **`pyproject.toml`**: Defines all project metadata, dependencies (production, optional, dev), and tool configurations (like Ruff).
 - **`uv.lock`**: Pins exact versions of all dependencies for reproducibility. Commit this file to version control.
+- **`.pre-commit-config.yaml`**: Configures the pre-commit hooks.
+- **`Taskfile.yml`**: Defines common project commands.
 - **`src/`**: Contains all the primary Python source code.
 - **`tests/`**: Contains all the tests.
 - **`notebooks/`**: Contains Jupyter notebooks.
 - **`data/`**: Contains data files.
 
-## 3. Dependency Management with `uv`
+## 3. Common Commands (via Task)
 
-The project uses `uv` to manage dependencies.
+This project uses [Task](https://taskfile.dev) to simplify common commands.
+
+- **`task sync`**: Sync the environment with `uv.lock`.
+- **`task install-hooks`**: Install the pre-commit hooks.
+- **`task lint`**: Check for linting errors.
+- **`task format`**: Format the codebase.
+- **`task fix`**: Fix linting errors automatically.
+- **`task test`**: Run tests.
+- **`task run`**: Run the main application script.
+- **`task serve`**: Serve the FastAPI application.
+- **`task build`**: Build the project for distribution.
+
+To see a list of all available tasks, run `task --list`.
+
+## 4. Manual Commands
+
+While `task` is recommended, you can also run the commands manually:
 
 - **Sync environment from `uv.lock`**:
   ```bash
   uv sync
   ```
 
-- **Add a production dependency**:
-  ```bash
-  uv add <package-name>
-  ```
-  *Example:* `uv add numpy`
-
-- **Add a development/testing dependency**:
-  ```bash
-  uv add <package-name> --dev
-  ```
-  *Example:* `uv add pytest --dev`
-
-- **Install optional dependency groups**:
-  ```bash
-  uv pip install ".[<group1>,<group2>]"
-  ```
-  *Example:* `uv pip install ".[mlops,viz]"`
-
-- **Remove a dependency**:
-  ```bash
-  uv remove <package-name>
-  ```
-
-## 4. Code Linting and Formatting with Ruff
-
-Ruff is the single tool for linting and formatting. Configuration is in `pyproject.toml` under `[tool.ruff]`.
-
-- **Check for linting errors**:
-  ```bash
-  uv run -- ruff check .
-  ```
-
-- **Fix linting errors automatically**:
-  ```bash
-  uv run -- ruff check --fix .
-  ```
-
-- **Format the entire codebase**:
-  ```bash
-  uv run -- ruff format .
-  ```
-
-## 5. Testing with Pytest
-
-The project uses `pytest` for testing.
-
 - **Run all tests**:
   ```bash
   uv run -m pytest
   ```
 
-## 6. Running Code
-
-- **Run a script**:
+- **Run pre-commit checks**:
   ```bash
-  uv run <script_name>.py
+  uv run -- pre-commit run --all-files
   ```
-  *Example:* `uv run main.py`
-
-- **Serve a FastAPI application** (if applicable):
-  ```bash
-  uv run -- uvicorn src.server:app
-  ```
-
-## 7. Building the Project
-
-- **Build for distribution**:
-  ```bash
-  uv build
-  ```
-  This creates distributable artifacts in the `dist/` directory.

@@ -18,24 +18,30 @@ All project configuration is centralized in the `pyproject.toml` file.
 
 ## Getting Started
 
-1.  **Install Prerequisites**:
+1. **Install Prerequisites**:
     - **`uv`**:
+
       ```bash
       pip install uv
       ```
+
     - **`task`**: Follow the installation instructions at [taskfile.dev](https://taskfile.dev/installation/).
 
-2.  **Clone the repository**:
+2. **Clone the repository**:
+
     ```bash
     git clone <your-repo-url>
     cd ml-project-template
     ```
 
-3.  **Sync the environment**:
+3. **Sync and Setup Hooks**:
+
     ```bash
     task sync
+    task install-hooks
     ```
-    This will create a virtual environment in `.venv` and install all dependencies.
+
+    This will create a virtual environment, install all dependencies, and set up the pre-commit hooks.
 
 ## Task Commands
 
@@ -51,7 +57,6 @@ This project uses [Task](https://taskfile.dev) as a task runner. All common comm
 - **`task build`**: Build the project for distribution.
 
 To see a list of all available tasks, run `task --list`.
-
 
 ## Learn More
 

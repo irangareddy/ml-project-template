@@ -44,3 +44,8 @@ tasks:
     desc: "Build the project for distribution"
     cmds:
       - uv build
+
+  install-hooks:
+    desc: "Install pre-commit hooks"
+    cmds:
+      - uv run -- pre-commit install

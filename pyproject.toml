@@ -28,6 +28,7 @@ extend-exclude = ["notebooks/", "data/"]
 dev = [
     "jupyter>=1.1.1",
     "jupyterlab>=4.4.4",
+    "pre-commit>=4.2.0",
     "pytest>=8.4.1",
     "pytest-cov>=6.2.1",
     "ruff>=0.12.4",
