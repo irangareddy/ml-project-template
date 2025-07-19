@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install uv
+        run: pip install uv
+
       - name: Install Task
         uses: arduino/setup-task@v1
         with:
