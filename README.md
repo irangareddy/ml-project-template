@@ -18,10 +18,12 @@ All project configuration is centralized in the `pyproject.toml` file.
 
 ## Getting Started
 
-1.  **Install `uv`**:
-    ```bash
-    pip install uv
-    ```
+1.  **Install Prerequisites**:
+    - **`uv`**:
+      ```bash
+      pip install uv
+      ```
+    - **`task`**: Follow the installation instructions at [taskfile.dev](https://taskfile.dev/installation/).
 
 2.  **Clone the repository**:
     ```bash
@@ -31,33 +33,25 @@ All project configuration is centralized in the `pyproject.toml` file.
 
 3.  **Sync the environment**:
     ```bash
-    uv sync
+    task sync
     ```
     This will create a virtual environment in `.venv` and install all dependencies.
 
-## Common Commands
+## Task Commands
 
-- **Lint and Format**:
-  ```bash
-  # Check for issues
-  uv run -- ruff check .
+This project uses [Task](https://taskfile.dev) as a task runner. All common commands are defined in the `Taskfile.yml`.
 
-  # Fix issues automatically
-  uv run -- ruff check --fix .
+- **`task lint`**: Check for linting errors.
+- **`task format`**: Format the codebase.
+- **`task fix`**: Fix linting errors automatically.
+- **`task test`**: Run tests.
+- **`task run`**: Run the main application script.
+- **`task serve`**: Serve the FastAPI application.
+- **`task sync`**: Sync the environment with `uv.lock`.
+- **`task build`**: Build the project for distribution.
 
-  # Format the codebase
-  uv run -- ruff format .
-  ```
+To see a list of all available tasks, run `task --list`.
 
-- **Run Tests**:
-  ```bash
-  uv run -m pytest
-  ```
-
-- **Run a Script**:
-  ```bash
-  uv run main.py
-  ```
 
 ## Learn More
 

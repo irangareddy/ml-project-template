@@ -1,0 +1,46 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: --list
+
+  lint:
+    desc: "Check for linting errors using Ruff"
+    cmds:
+      - uv run -- ruff check .
+
+  format:
+    desc: "Format the codebase using Ruff"
+    cmds:
+      - uv run -- ruff format .
+
+  fix:
+    desc: "Fix linting errors automatically using Ruff"
+    cmds:
+      - uv run -- ruff check --fix .
+
+  test:
+    desc: "Run tests using pytest"
+    cmds:
+      - uv run -m pytest
+
+  run:
+    desc: "Run the main application script"
+    cmds:
+      - uv run main.py
+
+  serve:
+    desc: "Serve the FastAPI application"
+    cmds:
+      - uv run -- uvicorn src.server:app
+
+  sync:
+    desc: "Sync the environment with uv.lock"
+    cmds:
+      - uv sync
+
+  build:
+    desc: "Build the project for distribution"
+    cmds:
+      - uv build
