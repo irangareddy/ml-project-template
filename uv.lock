@@ -2794,10 +2794,12 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "gunicorn" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "scikit-learn" },
     { name = "tensorflow" },
+    { name = "uvicorn" },
 ]
 
 [package.optional-dependencies]
@@ -2834,6 +2836,7 @@ dev = [
 requires-dist = [
     { name = "dvc", marker = "extra == 'mlops'" },
     { name = "fastapi" },
+    { name = "gunicorn" },
     { name = "jupyter", marker = "extra == 'notebooks'" },
     { name = "jupyterlab", marker = "extra == 'notebooks'" },
     { name = "matplotlib", marker = "extra == 'viz'" },
@@ -2846,6 +2849,7 @@ requires-dist = [
     { name = "spacy", marker = "extra == 'nlp'" },
     { name = "tensorflow" },
     { name = "transformers", marker = "extra == 'nlp'" },
+    { name = "uvicorn" },
     { name = "wandb", marker = "extra == 'mlops'" },
 ]
 provides-extras = ["mlops", "nlp", "viz", "notebooks"]

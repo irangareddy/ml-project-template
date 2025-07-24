@@ -1,0 +1,18 @@
+# Git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Python
+.venv
+.ruff_cache
+__pycache__
+*.pyc
+
+# Other
+.vscode
+README.md

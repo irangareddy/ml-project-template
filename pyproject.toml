@@ -10,6 +10,8 @@ dependencies = [
   "scikit-learn",
   "tensorflow",
   "fastapi",
+  "gunicorn",
+  "uvicorn",
 ]
 
 [project.optional-dependencies]
